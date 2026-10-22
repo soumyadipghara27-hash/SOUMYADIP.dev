@@ -7,13 +7,13 @@ The site includes a small Node.js server, a SQLite content database, and a passw
 1. Copy `.env.example` to `.env`.
 2. Set private `ADMIN_PASSWORD` and `INBOX_PASSWORD` values in `.env`. Do not publish `.env` or reuse passwords from other accounts.
 3. Run `npm start`, then open <http://localhost:3000>. Opening `index.html` directly as a `file://` page will not work because the editor requires the server.
-4. On desktop, type your numeric admin passcode followed by Enter to sign in. On a phone, press and hold a non-interactive area for about 2.2 seconds, then enter the passcode in the sign-in form. After successful sign-in, the animated “Hello, Boss!” welcome appears and the editor opens automatically.
+4. On desktop, type your numeric admin passcode to sign in; the hidden shortcut submits after you pause typing, or immediately if you press Enter. On a phone, press and hold a non-interactive area for about 2.2 seconds, then enter the passcode in the sign-in form. After successful sign-in, the animated “Hello, Boss!” welcome appears and the editor opens automatically.
 
 The editor lets you update the profile text and photo, skills/arsenal sections, timeline entries, and projects. Changes are saved to SQLite and are served to visitors immediately. Uploaded photos are stored in `uploads/`.
 
 ## Private collaboration inbox
 
-Valid collaboration form submissions are saved in the local SQLite database, including when automatic email delivery fails. The form tells visitors that messages are stored for follow-up. On desktop, type your four-digit inbox passcode followed by Enter to open the private inbox. On a phone, open the admin panel with a press-and-hold and select **Open private inbox**, then enter the passcode. The inbox shows sender names, email addresses, messages, and submission times. Select **Delete message** and confirm to permanently remove a message. Use **Lock inbox** to end the inbox session.
+Valid collaboration form submissions are saved in the local SQLite database, including when automatic email delivery fails. The form tells visitors that messages are stored for follow-up. On desktop, type your four-digit inbox passcode to open the private inbox; the hidden shortcut submits after you pause typing, or immediately if you press Enter. On a phone, open the admin panel with a press-and-hold and select **Open private inbox**, then enter the passcode. The inbox shows sender names, email addresses, messages, and submission times. Select **Delete message** and confirm to permanently remove a message. Use **Lock inbox** to end the inbox session.
 
 Inbox access uses an HTTP-only session cookie and is rate-limited. Messages are stored in `data/portfolio.sqlite` and remain there until the database is removed or the messages are otherwise managed.
 

@@ -15,6 +15,7 @@ let activeAdminTab = 'profile';
 let holdStart;
 let holdTimer;
 let keyCodeBuffer = '';
+let keyCodeTimer;
 
 function escapeAdminText(value) {
   return String(value).replace(/[&<>"']/g, (character) => ({
@@ -246,6 +247,22 @@ inboxModal.addEventListener('click', (event) => {
   if (event.target === inboxModal) closeInboxModal();
 });
 
+function submitHiddenPasscode() {
+  const passcode = keyCodeBuffer;
+  keyCodeBuffer = '';
+  window.clearTimeout(keyCodeTimer);
+  if (!/^(?:\d{4}|\d{6})$/.test(passcode)) return;
+
+  if (passcode.length === 4) {
+    openInboxModal(passcode);
+  } else {
+    adminModal.classList.add('active');
+    adminModal.setAttribute('aria-hidden', 'false');
+    adminLoginMessage.textContent = '';
+    authenticateAdmin(passcode);
+  }
+}
+
 window.addEventListener('keydown', (event) => {
   const isEditable = event.target instanceof HTMLElement
     && (event.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(event.target.tagName));
@@ -253,23 +270,18 @@ window.addEventListener('keydown', (event) => {
   if (/^\d$/.test(event.key)) {
     event.preventDefault();
     keyCodeBuffer = `${keyCodeBuffer}${event.key}`.slice(-6);
-  } else if (event.key === 'Enter' && /^\d{4}$|^\d{6}$/.test(keyCodeBuffer)) {
-    const passcode = keyCodeBuffer;
-    keyCodeBuffer = '';
-    if (passcode.length === 4) {
-      openInboxModal(passcode);
-    } else {
-      adminModal.classList.add('active');
-      adminModal.setAttribute('aria-hidden', 'false');
-      adminLoginMessage.textContent = '';
-      authenticateAdmin(passcode);
-    }
+    window.clearTimeout(keyCodeTimer);
+    keyCodeTimer = window.setTimeout(submitHiddenPasscode, 900);
+  } else if (event.key === 'Enter') {
+    submitHiddenPasscode();
   } else if (event.key === 'Escape') {
     keyCodeBuffer = '';
+    window.clearTimeout(keyCodeTimer);
     if (inboxModal.classList.contains('active')) closeInboxModal();
     else if (adminModal.classList.contains('active')) closeAdminModal();
   } else {
     keyCodeBuffer = '';
+    window.clearTimeout(keyCodeTimer);
   }
 });
 
