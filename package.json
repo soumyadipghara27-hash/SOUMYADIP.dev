@@ -1,0 +1,13 @@
+{
+  "name": "soumyadip-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portable, editable portfolio site with a secure admin editor and SQLite storage",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "check": "node --check server.js && node --check js/main.js && node --check js/admin.js && node --check js/three-scene.js"
+  }
+}

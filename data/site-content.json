@@ -1,0 +1,117 @@
+{
+  "profile": {
+    "name": "Soumyadip Ghara",
+    "subtitle": "BCA Undergrad & Developer",
+    "badge": "3D & SEC DEV",
+    "developerStatus": "turning ideas into code",
+    "heroDescription": "Engineering interactive 3D web experiences, defensive cybersecurity intelligence platforms, and embedded hardware security prototypes — from microchip to pixel.",
+    "roles": [
+      "3D WEB DEVELOPER",
+      "CYBERSECURITY RESEARCHER",
+      "HARDWARE PROTOTYPER",
+      "BCA UNDERGRADUATE"
+    ],
+    "aboutParagraphs": [
+      "I am Soumyadip Ghara, an undergraduate student pursuing a Bachelor of Computer Applications (BCA) with a deep passion for interactive 3D web graphics, defensive cybersecurity, and microcontroller prototyping.",
+      "Whether I'm rendering real-time WebGL scenes with Three.js, writing foundational algorithms in C, or designing hardware-level USB security firewalls on ESP32 and Arduino boards, I focus on building systems that are fast, resilient, and visually striking."
+    ],
+    "baseLocation": "Malighati, Paschim Medinipur, West Bengal, India",
+    "focus": "3D Web (Three.js / WebGL) & Cybersecurity Systems",
+    "photo": "profile.png"
+  },
+  "skills": [
+    {
+      "id": "core-hardware",
+      "title": "01 // CORE & EMBEDDED HARDWARE",
+      "items": [
+        "C Programming",
+        "ESP32",
+        "Arduino",
+        "Data Structures & Logic",
+        "Microcontroller I/O"
+      ]
+    },
+    {
+      "id": "cyber-workflow",
+      "title": "02 // CYBERSECURITY & WORKFLOW",
+      "items": [
+        "Email Threat Forensics",
+        "USB Hardware Firewalls",
+        "Scam & Phishing Analysis",
+        "VS Code",
+        "Git & GitHub",
+        "macOS / iPadOS Workflow"
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "date": "ACADEMIC STREAM",
+      "title": "Bachelor of Computer Applications (BCA)",
+      "description": "Undergraduate study focused on computer science fundamentals, C programming, data structures, algorithmic problem-solving, and modern web architecture. I use these foundations to turn ideas into practical software and interactive experiences."
+    },
+    {
+      "date": "HACKATHON R&D // TEAM CRIMSON ECLIPSE",
+      "title": "Smart India Hackathon (SIH) Innovator",
+      "description": "Worked with Team Crimson Eclipse on CyberTrace AI (SIH26106), a forensic-intelligence platform concept for suspicious-email analysis. Its focus includes examining email headers, identifying phishing and threat indicators, tracing sender IP geolocation, and organizing findings for investigation."
+    },
+    {
+      "date": "CREATIVE DEVELOPMENT // WEBGL",
+      "title": "Interactive 3D Web Experiences",
+      "description": "Build immersive web experiences with Three.js and WebGL, combining real-time 3D scenes, animated interface details, and scroll-driven storytelling. My portfolio's space environment brings together a galaxy, stars, planets, a satellite, and a time-travel-inspired camera journey."
+    },
+    {
+      "date": "DEFENSIVE SECURITY // EMBEDDED R&D",
+      "title": "Cybersecurity & Hardware Prototyping",
+      "description": "Explore defensive security through email-threat forensics, scam and phishing analysis, and USB hardware-firewall concepts. Prototype embedded ideas with C, ESP32, and Arduino, including the AI-Shield concept for identifying unauthorized USB HID and BadUSB activity."
+    }
+  ],
+  "projects": [
+    {
+      "id": "cybertrace",
+      "code": "MISSION // SIH26106",
+      "title": "CyberTrace AI",
+      "description": "AI-Powered Email Threat Detection, GeoLocation tracking, and Forensic Intelligence Platform built with Team Crimson Eclipse.",
+      "stack": [
+        "Cybersecurity",
+        "Threat Intel",
+        "Geo-Forensics",
+        "JavaScript"
+      ]
+    },
+    {
+      "id": "aishield",
+      "code": "MISSION // HARDWARE SEC",
+      "title": "AI-Shield USB Firewall",
+      "description": "OS-independent hardware security microchip architecture designed to intercept and block physical USB HID/BadUSB threats in real time.",
+      "stack": [
+        "ESP32",
+        "Arduino",
+        "Hardware Security",
+        "C / Embedded"
+      ]
+    },
+    {
+      "id": "sgword",
+      "code": "MISSION // PRODUCTIVITY SOFTWARE",
+      "title": "SG Word",
+      "description": "A word-processing app and your own alternative to Microsoft Word, designed for working with written documents.",
+      "stack": [
+        "Word Processing",
+        "Document Editor",
+        "SG Word"
+      ]
+    },
+    {
+      "id": "catalogecraft",
+      "code": "MISSION // AI CATALOG BUILDER",
+      "title": "Cataloge Craft",
+      "description": "An AI-powered website concept for creating polished product catalogs from product details and creative prompts.",
+      "stack": [
+        "Artificial Intelligence",
+        "Catalog Creation",
+        "Web App"
+      ]
+    }
+  ]
+}

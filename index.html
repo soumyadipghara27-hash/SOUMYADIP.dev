@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOUMYADIP.dev — 3D Web, Cybersecurity & Hardware Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS Link -->
+  <link rel="stylesheet" href="css/style.css?v=20261022-hamburger-nav-v5" />
+</head>
+<body>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="loader-brand">SOUMYADIP<span>.dev</span></div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar" id="loader-bar"></div>
+    </div>
+    <div class="loader-text" id="loader-text">INITIALIZING SYSTEM PROTOCOLS · 0%</div>
+  </div>
+
+  <!-- 3D WebGL Background & Cyber Overlays -->
+  <canvas id="webgl-canvas"></canvas>
+  <div class="cyber-grid"></div>
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    <div class="nav-container">
+      <a href="#home" class="brand-logo">SOUMYADIP<b>.dev</b></a>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation" hidden>
+        <a href="#home">01.Home</a>
+        <a href="#about">02.About</a>
+        <a href="#skills">03.Arsenal</a>
+        <a href="#projects">04.Missions</a>
+        <a href="#contact">05.Uplink</a>
+      </nav>
+      <div class="nav-right">
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          <span>Available</span>
+        </div>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="site-nav" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 01. HERO SECTION -->
+    <section id="home" class="hero">
+      <div>
+        <span class="sys-tag">SYS.PORTFOLIO // V4.0</span>
+        <h1>
+          <span>Hi, I'm</span>
+          <span class="gradient-name">SOUMYADIP</span>
+        </h1>
+        <div class="role-line">
+          <span>I AM A</span>
+          <span id="typed-role"></span><span class="cursor-blink"></span>
+        </div>
+        <p class="hero-desc" id="hero-description">
+          Engineering interactive 3D web experiences, defensive cybersecurity intelligence platforms, and embedded hardware security prototypes — from microchip to pixel.
+        </p>
+
+        <div class="telemetry-bar">
+          <div class="telemetry-item">
+            <small>Coordinates</small>
+            <span>22.42° N / 87.32° E</span>
+          </div>
+          <div class="telemetry-item">
+            <small>Base Station</small>
+            <span>Paschim Medinipur, WB</span>
+          </div>
+          <div class="telemetry-item">
+            <small>System Clock</small>
+            <span id="live-clock">IST --:--:--</span>
+          </div>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#projects" class="btn-primary">View Missions →</a>
+          <a href="#contact" class="btn-outline">Establish Uplink</a>
+        </div>
+      </div>
+
+      <!-- Profile HUD Card -->
+      <div class="hud-card">
+        <div class="hud-corner hud-tl"></div>
+        <div class="hud-corner hud-tr"></div>
+        <div class="hud-corner hud-bl"></div>
+        <div class="hud-corner hud-br"></div>
+
+        <div class="avatar-box">
+          <img id="profile-photo" src="profile.png" alt="Portrait of Soumyadip Ghara" role="button" tabindex="0" aria-haspopup="dialog" aria-label="View portrait of Soumyadip Ghara" onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='block';" />
+          <canvas class="binary-rain" aria-hidden="true"></canvas>
+          <div class="avatar-fallback" id="avatar-fallback" style="display:none;">
+            <div class="initials">SG</div>
+            <small class="fallback-sub">[ CYBER UNIT // ACTIVE ]</small>
+          </div>
+        </div>
+
+        <div class="hud-meta">
+          <div>
+            <div class="name" id="profile-name">Soumyadip Ghara</div>
+            <small class="meta-sub" id="profile-subtitle">BCA Undergrad & Developer</small>
+          </div>
+          <span class="badge" id="profile-badge">3D & SEC DEV</span>
+        </div>
+        <div class="build-terminal" aria-label="Developer status: turning ideas into code">
+          <span class="build-terminal-prompt">&gt;_</span>
+          <code><span id="developer-status">turning ideas into code</span><span class="build-terminal-cursor">_</span></code>
+          <span class="build-terminal-label">DEV.LOG</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="signal-ticker" aria-label="Technologies and areas of focus">
+      <div class="signal-ticker-track" id="signal-ticker-track">
+        <div class="signal-ticker-group">
+          <span>THREE.JS</span><i>✳</i><span>WEBGL</span><i>✳</i><span>CYBERSECURITY</span><i>✳</i><span>HARDWARE</span><i>✳</i><span>CREATIVE CODE</span><i>✳</i><span>ESP32</span><i>✳</i>
+        </div>
+        <div class="signal-ticker-group" aria-hidden="true">
+          <span>THREE.JS</span><i>✳</i><span>WEBGL</span><i>✳</i><span>CYBERSECURITY</span><i>✳</i><span>HARDWARE</span><i>✳</i><span>CREATIVE CODE</span><i>✳</i><span>ESP32</span><i>✳</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02. ABOUT SECTION -->
+    <section id="about">
+      <div class="sec-header">
+        <div>
+          <div class="sec-tag">02.1 — IDENTITY MATRIX</div>
+          <h2 class="sec-title">About <span>Me.</span></h2>
+        </div>
+        <div class="sec-sub">STATUS: ONLINE<br>UTC+05:30 IST</div>
+      </div>
+
+      <div class="about-grid">
+        <div class="glass-panel about-text">
+          <p id="about-paragraph-1">
+            I am <strong>Soumyadip Ghara</strong>, an undergraduate student pursuing a <strong>Bachelor of Computer Applications (BCA)</strong> with a deep passion for interactive 3D web graphics, defensive cybersecurity, and microcontroller prototyping.
+          </p>
+          <p id="about-paragraph-2">
+            Whether I'm rendering real-time WebGL scenes with Three.js, writing foundational algorithms in C, or designing hardware-level USB security firewalls on ESP32 and Arduino boards, I focus on building systems that are fast, resilient, and visually striking.
+          </p>
+
+          <div class="info-pairs">
+            <div class="info-box">
+              <small>BASE OPERATIONS</small>
+              <div id="profile-location">Malighati, Paschim Medinipur<br>West Bengal, India</div>
+            </div>
+            <div class="info-box">
+              <small>CORE FOCUS</small>
+              <div id="profile-focus">3D Web (Three.js / WebGL)<br>& Cybersecurity Systems</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-panel">
+          <div class="skill-cat-title">// SYSTEM PROTOCOLS</div>
+          <div class="timeline" id="timeline-list">
+            <span class="timeline-energy" aria-hidden="true"></span>
+            <div class="timeline-item">
+              <div class="tl-date">ACADEMIC STREAM</div>
+              <div class="tl-title">Bachelor of Computer Applications (BCA)</div>
+              <div class="tl-desc">Undergraduate study focused on computer science fundamentals, C programming, data structures, algorithmic problem-solving, and modern web architecture. I use these foundations to turn ideas into practical software and interactive experiences.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-date">HACKATHON R&D // TEAM CRIMSON ECLIPSE</div>
+              <div class="tl-title">Smart India Hackathon (SIH) Innovator</div>
+              <div class="tl-desc">Worked with Team Crimson Eclipse on CyberTrace AI (SIH26106), a forensic-intelligence platform concept for suspicious-email analysis. Its focus includes examining email headers, identifying phishing and threat indicators, tracing sender IP geolocation, and organizing findings for investigation.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-date">CREATIVE DEVELOPMENT // WEBGL</div>
+              <div class="tl-title">Interactive 3D Web Experiences</div>
+              <div class="tl-desc">Build immersive web experiences with Three.js and WebGL, combining real-time 3D scenes, animated interface details, and scroll-driven storytelling. My portfolio's space environment brings together a galaxy, stars, planets, a satellite, and a time-travel-inspired camera journey.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-date">DEFENSIVE SECURITY // EMBEDDED R&amp;D</div>
+              <div class="tl-title">Cybersecurity &amp; Hardware Prototyping</div>
+              <div class="tl-desc">Explore defensive security through email-threat forensics, scam and phishing analysis, and USB hardware-firewall concepts. Prototype embedded ideas with C, ESP32, and Arduino, including the AI-Shield concept for identifying unauthorized USB HID and BadUSB activity.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. SKILLS SECTION -->
+    <section id="skills">
+      <div class="sec-header">
+        <div>
+          <div class="sec-tag">03 — TECH ARSENAL</div>
+          <h2 class="sec-title">Engineering <span>Mainframe</span></h2>
+        </div>
+        <div class="sec-sub">LANGUAGES, 3D ENGINES<br>& HARDWARE STACK</div>
+      </div>
+
+      <div class="skills-grid" id="skills-grid">
+        <div class="glass-panel">
+          <div class="skill-cat-title">01 // CORE & EMBEDDED HARDWARE</div>
+          <div class="skill-tags">
+            <span class="skill-pill">C Programming</span>
+            <span class="skill-pill">ESP32</span>
+            <span class="skill-pill">Arduino</span>
+            <span class="skill-pill">Data Structures & Logic</span>
+            <span class="skill-pill">Microcontroller I/O</span>
+          </div>
+        </div>
+
+        <div class="glass-panel">
+          <div class="skill-cat-title">02 // CYBERSECURITY & WORKFLOW</div>
+          <div class="skill-tags">
+            <span class="skill-pill">Email Threat Forensics</span>
+            <span class="skill-pill">USB Hardware Firewalls</span>
+            <span class="skill-pill">Scam & Phishing Analysis</span>
+            <span class="skill-pill">VS Code</span>
+            <span class="skill-pill">Git & GitHub</span>
+            <span class="skill-pill">macOS / iPadOS Workflow</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. PROJECTS SECTION -->
+    <section id="projects">
+      <div class="sec-header">
+        <div>
+          <div class="sec-tag">04 — SELECTED WORKS</div>
+          <h2 class="sec-title">Deployed <span>Missions</span></h2>
+        </div>
+        <div class="sec-sub">CLICK ANY CARD<br>FOR FULL MISSION SPECS</div>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+        <div class="project-card" onclick="openProjectModal('cybertrace')">
+          <div>
+            <div class="proj-code">MISSION // SIH26106</div>
+            <h3>CyberTrace AI</h3>
+            <p>AI-Powered Email Threat Detection, GeoLocation tracking, and Forensic Intelligence Platform built with Team Crimson Eclipse.</p>
+          </div>
+          <div class="proj-stack">
+            <span>Cybersecurity</span>
+            <span>Threat Intel</span>
+            <span>Geo-Forensics</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+
+        <div class="project-card" onclick="openProjectModal('aishield')">
+          <div>
+            <div class="proj-code">MISSION // HARDWARE SEC</div>
+            <h3>AI-Shield USB Firewall</h3>
+            <p>OS-independent hardware security microchip architecture designed to intercept and block physical USB HID/BadUSB threats in real time.</p>
+          </div>
+          <div class="proj-stack">
+            <span>ESP32</span>
+            <span>Arduino</span>
+            <span>Hardware Security</span>
+            <span>C / Embedded</span>
+          </div>
+        </div>
+
+        <div class="project-card" role="button" tabindex="0" onclick="openProjectModal('sgword')" onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault(); openProjectModal('sgword');}">
+          <div>
+            <div class="proj-code">MISSION // PRODUCTIVITY SOFTWARE</div>
+            <h3>SG Word</h3>
+            <p>A word-processing app and your own alternative to Microsoft Word, designed for working with written documents.</p>
+          </div>
+          <div class="proj-stack">
+            <span>Word Processing</span>
+            <span>Document Editor</span>
+            <span>SG Word</span>
+          </div>
+        </div>
+
+        <div class="project-card" onclick="openProjectModal('catalogecraft')">
+          <div>
+            <div class="proj-code">MISSION // AI CATALOG BUILDER</div>
+            <h3>Cataloge Craft</h3>
+            <p>An AI-powered website concept for creating polished product catalogs from product details and creative prompts.</p>
+          </div>
+          <div class="proj-stack">
+            <span>Artificial Intelligence</span>
+            <span>Catalog Creation</span>
+            <span>Web App</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. CONTACT SECTION (WITH LIVE GMAIL INTEGRATION) -->
+    <section id="contact">
+      <div class="sec-header">
+        <div>
+          <div class="sec-tag">05 — COMMUNICATION LINK</div>
+          <h2 class="sec-title">Establish <span>Uplink</span></h2>
+        </div>
+        <div class="sec-sub">READY FOR COLLABORATION<br>& NEW PROJECTS</div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="glass-panel">
+          <h3 class="contact-heading">
+            Let's build something <span>extraordinary.</span>
+          </h3>
+          <p class="contact-subtext">
+            Have a 3D web project, a cybersecurity research idea, or a hackathon collaboration? Send a message here or open your email app to reach me directly.
+          </p>
+
+          <div class="copy-box" onclick="copyEmail()" role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault(); copyEmail();}">
+            <div>
+              <small class="channel-label">DIRECT CHANNEL</small>
+              <span id="email-text">soumyadipghara27@gmail.com</span>
+            </div>
+            <span class="copy-badge" id="copy-badge">CLICK TO COPY</span>
+          </div>
+          <a class="contact-email-link" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=soumyadipghara27%40gmail.com" target="_blank" rel="noopener noreferrer">Open Gmail →</a>
+
+          <div class="info-pairs">
+            <div class="info-box">
+              <small>LOCATION</small>
+              <div>Paschim Medinipur, WB</div>
+            </div>
+            <div class="info-box">
+              <small>TIMEZONE</small>
+              <div>UTC+05:30 (IST)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-panel">
+          <form class="contact-form" id="contact-form">
+            <input class="contact-honeypot" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <input type="text" name="name" placeholder="Your Name / Callsign" autocomplete="name" maxlength="120" required />
+            <input type="email" name="email" placeholder="Your Email Address" autocomplete="email" maxlength="254" required />
+            <textarea name="message" rows="4" maxlength="5000" placeholder="Project details or transmission message..." required></textarea>
+            <p class="contact-storage-note">Messages are stored privately for collaboration follow-up, even if email delivery is unavailable.</p>
+            <button type="submit" class="btn-primary submit-btn" id="submit-btn">Send Transmission →</button>
+            <p class="contact-config-note" id="contact-config-note" hidden></p>
+            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+          </form>
+          <div class="contact-success" id="contact-success" role="status" aria-live="polite" hidden>
+            <div class="contact-success-mark" aria-hidden="true">
+              <svg viewBox="0 0 52 52" focusable="false">
+                <circle class="success-circle" cx="26" cy="26" r="23" />
+                <path class="success-check" d="m15 27 7 7 15-16" />
+              </svg>
+            </div>
+            <p class="contact-success-tag">UPLINK // CONFIRMED</p>
+            <h3>Message submitted!</h3>
+            <p class="contact-success-copy">The email service accepted your message. If it does not arrive, check Spam or Promotions, or verify the recipient settings.</p>
+            <button class="contact-another-btn" id="contact-another" type="button">Send another message</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-social-area">
+        <span class="contact-social-label">DIRECT COLLABORATION CHANNELS</span>
+        <nav class="contact-socials" aria-label="Contact and social profiles">
+          <a class="contact-social-link" href="https://www.linkedin.com/in/soumyadip-ghara-6ab4a542a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.5a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6ZM3.7 8.5h3v11.8h-3V8.5Zm5 0h2.9v1.6h.1a3.2 3.2 0 0 1 2.9-1.8c3.1 0 3.7 2 3.7 4.6v7.4h-3v-6.6c0-1.6 0-3-1.8-3s-2 1.4-2 2.9v6.7h-2.9V8.5Z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="contact-social-link" href="https://www.facebook.com/share/1JNsfwj1Ww/" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.4 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5v3.1h2.7v8h3.2Z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a class="contact-social-link" href="https://www.instagram.com/soumyadipghara_7/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-icon-fill" cx="17.7" cy="6.5" r="1.1"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a class="contact-social-link" href="https://wa.me/917679768477?text=Hi%20Soumyadip%2C%20I%27d%20like%20to%20discuss%20a%20collaboration." target="_blank" rel="noopener noreferrer" aria-label="Start a WhatsApp collaboration chat (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4l-4.6 1.2 1.2-4.5a8.4 8.4 0 1 1 15.8-4.1Z"/><path d="M9 8.1c-.2-.5-.5-.5-.8-.5h-.6c-.2 0-.6.1-.9.4-.3.4-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.5 5.4 4.7 2.7 1.1 3.2.9 3.8.8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.7-.4l-2.2-1.1c-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.3-.7.1a8.9 8.9 0 0 1-2.6-1.6 9.8 9.8 0 0 1-1.8-2.3c-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6L9 8.1Z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+          <a class="contact-social-link" href="https://github.com/soumyadipghara27-hash/Soumyadip-Ghara.git" target="_blank" rel="noopener noreferrer" aria-label="GitHub project (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.4-4-1.4-.5-1.3-1.3-1.6-1.3-1.6-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.4 5.9.4.3.8 1 .8 2v3.3c0 .3.2.7.8.6A11.1 11.1 0 0 0 12 .9Z"/></svg>
+            <span>GitHub</span>
+          </a>
+          <a class="contact-social-link" href="https://x.com/Soumyadipg73650" target="_blank" rel="noopener noreferrer" aria-label="X profile (opens in a new tab)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.8 5.7 22H2.5l7.3-8.4L1.8 2h6.5l4.5 6.7L18.9 2Zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20Z"/></svg>
+            <span>X</span>
+          </a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>Designed & Engineered by <strong class="footer-author" id="footer-author">Soumyadip Ghara</strong></div>
+    <div class="footer-meta">© 2026 Edition • V4.0.0 // HTML5 • CSS3 • JavaScript • Three.js • WebGL</div>
+  </footer>
+
+  <!-- Project Details Modal -->
+  <div class="modal-backdrop" id="proj-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" type="button" aria-label="Close details" onclick="closeModals()">✕</button>
+      <div class="proj-code" id="modal-code">MISSION</div>
+      <h3 id="modal-title" class="modal-heading"></h3>
+      <p id="modal-desc" class="modal-body"></p>
+      <div class="proj-stack" id="modal-stack"></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop photo-viewer" id="photo-modal" role="dialog" aria-modal="true" aria-label="Profile photo" aria-hidden="true">
+    <div class="photo-viewer-box">
+      <button class="modal-close" id="photo-modal-close" type="button" aria-label="Close photo">✕</button>
+      <img id="photo-modal-image" alt="Enlarged portrait of Soumyadip Ghara" />
+    </div>
+  </div>
+
+  <!-- Command Palette Modal (Ctrl+K) -->
+  <div class="modal-backdrop" id="cmd-modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModals()">✕</button>
+      <div class="proj-code">// COMMAND PALETTE (ESC TO CLOSE)</div>
+      <input type="text" class="cmd-input" id="cmd-search" placeholder="Type a command or section..." oninput="filterCmd(this.value)" />
+      <div class="cmd-list" id="cmd-list">
+        <div class="cmd-item" onclick="jumpTo('#home')"><span>→ Go to Home</span><span>01</span></div>
+        <div class="cmd-item" onclick="jumpTo('#about')"><span>→ Go to About Me</span><span>02</span></div>
+        <div class="cmd-item" onclick="jumpTo('#skills')"><span>→ Inspect Tech Arsenal</span><span>03</span></div>
+        <div class="cmd-item" onclick="jumpTo('#projects')"><span>→ View Deployed Missions</span><span>04</span></div>
+        <div class="cmd-item" onclick="jumpTo('#contact')"><span>→ Establish Uplink (Contact)</span><span>05</span></div>
+        <div class="cmd-item" onclick="copyEmail(); closeModals();"><span>→ Copy Direct Email</span><span>⌘C</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop admin-backdrop" id="admin-modal" aria-hidden="true">
+    <div class="admin-modal-box">
+      <button class="modal-close" id="admin-close" type="button" aria-label="Close editor">✕</button>
+      <div class="proj-code">PRIVATE // PORTFOLIO CONTROL</div>
+      <h2 class="admin-heading">Portfolio <span>Editor</span></h2>
+      <p class="admin-note">Enter your admin passcode once to unlock the editor. On a phone, press and hold a non-interactive area; the masked passcode field will appear for sign-in.</p>
+
+      <form id="admin-login-form" class="admin-login-form" hidden>
+        <label for="admin-password">Admin passcode</label>
+        <input id="admin-password" name="password" type="password" inputmode="numeric" placeholder="Enter admin passcode" autocomplete="current-password" required />
+        <button class="btn-primary" type="submit">Unlock editor</button>
+        <p class="admin-message" id="admin-login-message" role="status"></p>
+      </form>
+
+      <div class="admin-welcome" id="admin-welcome" hidden aria-live="polite">
+        <div class="admin-welcome-orbit" aria-hidden="true"><span></span></div>
+        <p class="admin-welcome-eyebrow">ADMIN ACCESS // VERIFIED</p>
+        <h3>Hello, Boss!</h3>
+        <p>Welcome back to your admin section.</p>
+      </div>
+
+      <button class="admin-secondary inbox-open-btn" id="open-inbox" type="button">Open private inbox</button>
+
+      <div id="admin-editor" class="admin-editor" hidden>
+        <div class="admin-editor-top">
+          <p class="admin-message" id="admin-save-message" role="status"></p>
+          <button class="admin-secondary" id="admin-logout" type="button">Sign out</button>
+        </div>
+        <div class="admin-tabs" role="tablist" aria-label="Portfolio sections">
+          <button type="button" class="admin-tab active" data-admin-tab="profile">Profile</button>
+          <button type="button" class="admin-tab" data-admin-tab="skills">Arsenal</button>
+          <button type="button" class="admin-tab" data-admin-tab="timeline">Timeline</button>
+          <button type="button" class="admin-tab" data-admin-tab="projects">Projects</button>
+        </div>
+        <div id="admin-editor-content" class="admin-editor-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop inbox-backdrop" id="inbox-modal" role="dialog" aria-modal="true" aria-labelledby="inbox-title" aria-hidden="true">
+    <div class="admin-modal-box inbox-modal-box">
+      <button class="modal-close" id="inbox-close" type="button" aria-label="Close private inbox">✕</button>
+      <div class="proj-code">PRIVATE // COLLABORATION CHANNEL</div>
+      <h2 class="admin-heading" id="inbox-title">Message <span>Inbox</span></h2>
+      <p class="admin-note">Enter the private inbox passcode to view collaboration messages and contact details.</p>
+      <form class="inbox-login-form" id="inbox-login-form">
+        <label for="inbox-password">Inbox passcode</label>
+        <input id="inbox-password" name="password" type="password" inputmode="numeric" maxlength="32" autocomplete="current-password" required />
+        <button class="btn-primary" type="submit">Unlock inbox</button>
+      </form>
+      <p class="admin-message" id="inbox-status" role="status" aria-live="polite"></p>
+      <div class="inbox-messages" id="inbox-messages" hidden></div>
+      <button class="admin-secondary inbox-logout-btn" id="inbox-logout" type="button" hidden>Lock inbox</button>
+    </div>
+  </div>
+
+  <!-- Three.js Library CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Separated Custom Scripts -->
+  <script src="js/three-scene.js"></script>
+  <script src="js/main.js?v=20261022-hamburger-nav-v11"></script>
+  <script src="js/admin.js?v=20261022-public-source-passcode-v8"></script>
+</body>
+</html>
