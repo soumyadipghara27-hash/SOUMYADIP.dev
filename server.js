@@ -7,7 +7,7 @@ const path = require('node:path');
 const root = __dirname;
 const port = Number(process.env.PORT || 3000);
 const databasePath = path.resolve(process.env.DATABASE_PATH || path.join(root, 'data', 'portfolio.sqlite'));
-const uploadDirectory = path.join(root, 'uploads');
+const uploadDirectory = path.resolve(root, process.env.UPLOAD_DIRECTORY || 'uploads');
 const isProduction = process.env.NODE_ENV === 'production';
 const adminPassword = process.env.ADMIN_PASSWORD;
 const inboxPassword = process.env.INBOX_PASSWORD;
@@ -581,20 +581,21 @@ function serveStatic(request, response, url) {
 
   if (pathname === '/') pathname = '/index.html';
   const topLevelAsset = ['/index.html', '/profile.png', '/profile.jpg'].includes(pathname);
-  const allowedDirectories = ['css', 'js', 'uploads'].map((directory) => path.join(root, directory));
   if (!topLevelAsset && !/^\/(css|js|uploads)\//.test(pathname)) {
     return sendJson(response, 404, { error: 'File not found.' });
   }
-  const requestedPath = path.resolve(root, `.${pathname}`);
-  const isAllowedDirectoryPath = allowedDirectories.some((directory) =>
-    requestedPath.startsWith(`${directory}${path.sep}`));
-  if (!topLevelAsset && !isAllowedDirectoryPath) {
-    return sendJson(response, 404, { error: 'File not found.' });
-  }
+  const requestedPath = pathname.startsWith('/uploads/')
+    ? path.resolve(uploadDirectory, pathname.slice('/uploads/'.length))
+    : path.resolve(root, `.${pathname}`);
+  const cssDirectory = path.join(root, 'css');
+  const jsDirectory = path.join(root, 'js');
   const isUpload = requestedPath.startsWith(`${uploadDirectory}${path.sep}`);
   const isProfileUpload = /^\/uploads\/avatar\.(png|jpg|webp)$/.test(pathname);
-  if (!requestedPath.startsWith(`${root}${path.sep}`)
-      || (pathname.startsWith('/uploads/') && (!isUpload || !isProfileUpload))) {
+  const isCssAsset = pathname.startsWith('/css/')
+    && requestedPath.startsWith(`${cssDirectory}${path.sep}`);
+  const isJavaScriptAsset = pathname.startsWith('/js/')
+    && requestedPath.startsWith(`${jsDirectory}${path.sep}`);
+  if (!topLevelAsset && !isCssAsset && !isJavaScriptAsset && !(isUpload && isProfileUpload)) {
     return sendJson(response, 404, { error: 'File not found.' });
   }
   if (!fs.existsSync(requestedPath) || !fs.statSync(requestedPath).isFile()) {

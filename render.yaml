@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: soumyadip-portfolio
+    runtime: node
+    plan: starter
+    buildCommand: npm install && npm run check
+    startCommand: npm start
+    healthCheckPath: /api/contact/status
+    disk:
+      name: portfolio-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /var/data/portfolio.sqlite
+      - key: UPLOAD_DIRECTORY
+        value: /var/data/uploads
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: INBOX_PASSWORD
+        sync: false

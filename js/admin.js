@@ -266,7 +266,15 @@ function submitHiddenPasscode() {
 window.addEventListener('keydown', (event) => {
   const isEditable = event.target instanceof HTMLElement
     && (event.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(event.target.tagName));
-  if (isEditable || event.metaKey || event.ctrlKey || event.altKey) return;
+  if (isEditable || event.altKey) return;
+  if ((event.metaKey || event.ctrlKey) && event.shiftKey && event.key.toLowerCase() === 'e') {
+    event.preventDefault();
+    keyCodeBuffer = '';
+    window.clearTimeout(keyCodeTimer);
+    showAdminModal({ requirePassword: true });
+    return;
+  }
+  if (event.metaKey || event.ctrlKey) return;
   if (/^\d$/.test(event.key)) {
     event.preventDefault();
     keyCodeBuffer = `${keyCodeBuffer}${event.key}`.slice(-6);
